@@ -73,12 +73,9 @@ backend/.cache/
 *.tsbuildinfo
 
 # dotenv environment variable files
-.env
-.env.*
 frontend/.env
-frontend/.env.*
 backend/.env
-backend/.env.*
+
 
 # MongoDB database dumps or local db files
 *.mongodb

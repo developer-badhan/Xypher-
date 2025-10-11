@@ -75,6 +75,12 @@ export const signup = async (req,res) => {
 export const login = async (req,res) => {
     const {email ,password} = req.body;
 
+    if(!email || !password){
+        return res
+        .status(400)
+        .json({message:"Email and password are required"});
+    }
+
     try{
         const user = await User.findOne({email});
         if(!user) return res.status(400).json({message:"Invalid credentials"});
@@ -110,3 +116,29 @@ export const logout = async (req,res) => {
     res.status(200).json({message:"Logout successful"});
 }
 
+
+export const updateProfile = async (req, res) => {
+    const userId = req.user._id;
+    const { fullName, profilePic } = req.body;
+
+    try {
+        const updatedUser = await User.findByIdAndUpdate(userId, {
+            fullName,
+            profilePic
+        }, { new: true });
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.status(200).json({
+            _id: updatedUser._id,
+            fullName: updatedUser.fullName,
+            email: updatedUser.email,
+            profilePic: updatedUser.profilePic
+        });
+    } catch (error) {
+        console.error("Error updating profile:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+}

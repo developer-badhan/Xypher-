@@ -35,7 +35,7 @@
 ---
 
 ## 📁 Project Structure
-
+```
 xypher/
 |
 |__backend/
@@ -121,7 +121,7 @@ xypher/
 || |__package.json
 || |__taildwind.config.js
 || |__vite.config.js
-
+```
 
 
 ---

@@ -54,7 +54,7 @@ export const sendMessage = async (req, res) => {
 
     let imageUrl;
     if (image) {
-      // upload base64 image to cloudinary
+
       const uploadResponse = await cloudinary.uploader.upload(image);
       imageUrl = uploadResponse.secure_url;
     }
@@ -84,7 +84,6 @@ export const getChatPartners = async (req, res) => {
   try {
     const loggedInUserId = req.user._id;
 
-    // find all the messages where the logged-in user is either sender or receiver
     const messages = await Message.find({
       $or: [{ senderId: loggedInUserId }, { receiverId: loggedInUserId }],
     });

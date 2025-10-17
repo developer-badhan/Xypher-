@@ -139,21 +139,27 @@ xypher/
 ### 1. Clone the Repository
 
 ```bash ```
-git clone https://github.com/developer-badhan/Xypher-.git
-cd xypher
+
+=> git clone https://github.com/developer-badhan/Xypher-.git
+
+=> cd xypher
 
 
 ### Install Dependencies
 
 # For backend
-cd backend
-npm install
-npm run dev
+=> cd backend 
+
+=> npm install
+
+=> npm run dev
 
 
 # For frontend
-cd frontend
-npm install
-npm run dev
+=> cd frontend
+
+=> npm install
+
+=> npm run dev
 
 
